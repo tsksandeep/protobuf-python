@@ -1,0 +1,23 @@
+syntax = "proto2";
+
+package tutorial;
+
+import "google/protobuf/field_mask.proto";
+
+message Response {
+  optional string field_1 = 1;
+  optional string field_2 = 2;
+  optional string field_3 = 3;
+}
+
+message Request {
+  optional string field_1 = 1;
+  optional string field_2 = 2;
+  optional string field_3 = 3;
+  optional google.protobuf.FieldMask field_mask = 4;
+}
+
+service Sample {
+  rpc SampleFunction(Request)
+      returns (Response) {}
+}
